@@ -1,3 +1,12 @@
+.tituloPrincipal { 
+	color: black; 
+	font-family: 'Lato', sans-serif; 
+	font-size: 54px; 
+	font-weight: 300; 
+	line-height: 58px; 
+	margin: 0 0 58px; 
+}
+
 .buttonAmplitud, .buttonProfundidad {
 	box-shadow:inset 0px 1px 3px 0px #91b8b3;
 	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
