@@ -1,17 +1,22 @@
 :- use_module(library(http/thread_httpd)).
 :- use_module(library(http/http_dispatch)).
+:- use_module(library(http/http_files)).
 :- use_module(library(http/html_write)).
-:- http_handler(root(list_modules), list_modules, []).
 
-% URL handlers.
-:- http_handler('/', handle_request, []).
+% Obtener archivos para estilos y validaciones. 
+http:location(styles, root(styles), []).
+:- http_handler(styles(.), http_reply_from_files('./styles', []), [prefix]).
 
-% Request handlers.
-handle_request(_Request) :-
-    reply_html_page(
-        [title('Servidor desde prolog')],
-        [h1('Problema N reinas')],
-        [button(class(buttonAmplitud), 'Amplitud'), button(class(buttonAmplitud),'Coso')]
+% Manejador de urls.
+:- http_handler('/', index, []).
+
+% Manejador de solicitudes 
+ index(_Request) :-
+    reply_html_page([title('N Reinas'),
+    link([rel('stylesheet'), href('/styles/index.css') ]),
+    h1(class(tituloPrincipal),'Problema N reinas')],
+    [button(class(buttonAmplitud), 'Amplitud'), 
+    button(class(buttonProfundidad),'Profundidad')]
     ).
 
 server(Port) :-
