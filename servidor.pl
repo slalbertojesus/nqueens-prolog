@@ -3,6 +3,10 @@
 :- use_module(library(http/http_files)).
 :- use_module(library(http/html_write)).
 
+%Locaciones para archivos
+:- multifile http:location/3.
+:- dynamic   http:location/3.
+
 % Obtener archivos para estilos y validaciones. 
 http:location(styles, root(styles), []).
 :- http_handler(styles(.), http_reply_from_files('./styles', []), [prefix]).
@@ -18,7 +22,7 @@ http:location(styles, root(styles), []).
     [button(class(buttonAmplitud), 'Amplitud'), 
     button(class(buttonProfundidad),'Profundidad')]
     ).
-
+ 
 server(Port) :-
     http_server(http_dispatch, [port(Port)]).
 
