@@ -24,8 +24,9 @@ jobs:
     - name: Ejecutar servidor
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
+        HOST: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: swi-prolog.swipl -s /proyecto/servidor.pl
+        script: swipl -s /proyecto/servidor.pl
+
