@@ -2,7 +2,6 @@
 :- use_module(library(http/http_dispatch)).
 :- use_module(library(http/http_files)).
 :- use_module(library(http/html_write)).
-:- use_module(library(http/http_unix_daemon)).
 
 %Locaciones para archivos
 :- multifile http:location/3.
