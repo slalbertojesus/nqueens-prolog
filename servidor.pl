@@ -2,6 +2,9 @@
 :- use_module(library(http/http_dispatch)).
 :- use_module(library(http/http_files)).
 :- use_module(library(http/html_write)).
+:- use_module(library(http/http_error)).
+:- use_module(library(http/http_unix_daemon)).
+:- initialization(http_daemon, main).
 
 %Locaciones para archivos
 :- multifile http:location/3.
@@ -26,4 +29,4 @@ http:location(styles, root(styles), []).
 server(Port) :-
     http_server(http_dispatch, [port(Port)]).
 
-:- initialization(server(8000)).
+:- initialization(http_daemon, main).
