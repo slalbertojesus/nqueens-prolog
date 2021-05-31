@@ -27,4 +27,4 @@ http:location(styles, root(styles), []).
 server(Port) :-
     http_server(http_dispatch, [port(Port)]).
 
-:- initialization(server(8000)).
+:- initialization(http_daemon, main).
