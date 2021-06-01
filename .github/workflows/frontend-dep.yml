@@ -19,7 +19,7 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
       with:
         source: "./nreinas.frontend/"
-        target: "/proyecto/nreinas.frontend/"
+        target: "/proyecto/"
 
     - name: Ejecutar servidor front-end
       uses: appleboy/ssh-action@master
