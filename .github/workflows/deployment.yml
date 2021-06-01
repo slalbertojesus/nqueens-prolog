@@ -30,5 +30,5 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
         script: |
                 kill $(cat http.pid)
-                swipl server.pl --port=8000 --pidfile=http.pid --workers=2
+                swipl /proyecto/servidor.pl --port=8000 --pidfile=http.pid --workers=2
 
