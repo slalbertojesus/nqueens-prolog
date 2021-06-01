@@ -5,6 +5,8 @@
 :- use_module(library(http/http_error)).
 :- use_module(library(http/http_unix_daemon)).
 
+:- initialization(http_daemon, main).
+
 %Locaciones para archivos
 :- multifile http:location/3.
 :- dynamic   http:location/3.
@@ -24,8 +26,3 @@ http:location(styles, root(styles), []).
     [button(class(buttonAmplitud), 'Amplitud'), 
     button(class(buttonProfundidad),'Profundidad')]
     ).
- 
-server(Port) :-
-    http_server(http_dispatch, [port(Port)]).
-
-:- initialization(http_daemon, main).
