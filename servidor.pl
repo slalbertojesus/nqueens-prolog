@@ -4,7 +4,6 @@
 :- use_module(library(http/html_write)).
 :- use_module(library(http/http_error)).
 :- use_module(library(http/http_unix_daemon)).
-:- initialization(http_daemon, main).
 
 %Locaciones para archivos
 :- multifile http:location/3.
