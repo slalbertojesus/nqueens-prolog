@@ -10,11 +10,11 @@
 :- dynamic   http:location/3.
 
 % Obtener archivos para estilos y validaciones. 
-http:location(styles, root(styles), []).
 :- http_handler(styles(.), http_reply_from_files('./styles', []), [prefix]).
 
 % Manejador de urls.
 :- http_handler(root(.), index, []).
+http:location(styles, root(styles), []).
 
 % Manejador de solicitudes 
  index(_Request) :-
