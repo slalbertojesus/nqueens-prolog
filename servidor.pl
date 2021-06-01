@@ -3,8 +3,6 @@
 :- use_module(library(http/http_files)).
 :- use_module(library(http/html_write)).
 
-:- initialization(main).
-
 %Locaciones para archivos
 :- multifile http:location/3.
 :- dynamic   http:location/3.
@@ -24,3 +22,8 @@ http:location(styles, root(styles), []).
     [button(class(buttonAmplitud), 'Amplitud'), 
     button(class(buttonProfundidad),'Profundidad')]
     ).
+ 
+server(Port) :-
+    http_server(http_dispatch, [port(Port)]).
+
+:- initialization(server(8000)).
