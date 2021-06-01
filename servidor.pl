@@ -11,8 +11,8 @@
 :- dynamic   http:location/3.
 
 % Obtener archivos para estilos y validaciones. 
-:- http_handler(css('./styles/index.css'),  http_reply_file('./styles/index.css', []), []).
-http:location(css, root(css), []).
+:- http_handler(styles('./index.css'),  http_reply_file('./index.css', []), []).
+http:location(styles, root(styles), []).
 
 % Manejador de urls.
 :- http_handler(root(.), index, []).
@@ -20,7 +20,7 @@ http:location(css, root(css), []).
 % Manejador de solicitudes 
  index(_Request) :-
     reply_html_page([title('N Reinas'),
-    \html_requires(css('./styles/index.css')),
+    \html_requires(styles('./index.css')),
     h1(class(tituloPrincipal),'Problema N reinas'),
     div([label([for('numeroMatriz')], 'Entero de matriz deseada:'),
     input([class(inputNumeroMatriz),type('number'), id('numeroMatriz'), 
