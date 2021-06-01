@@ -28,4 +28,4 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: swipl /proyecto/servidor.pl --port=8000 --pidfile=http.pid
+        script: swipl /proyecto/servidor.pl --port=8000 --pidfile=http.pid --workers=2
