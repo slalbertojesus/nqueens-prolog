@@ -20,7 +20,10 @@ http:location(styles, root(styles), []).
  index(_Request) :-
     reply_html_page([title('N Reinas'),
     link([rel('stylesheet'), href('/styles/index.css') ]),
-    h1(class(tituloPrincipal),'Problema N reinas')],
+    h1(class(tituloPrincipal),'Problema N reinas'),
+  div([label([for('numeroMatriz')], 'Entero de matriz deseada:'),
+              input([class(inputNumeroMatriz),type('number'), id('numeroMatriz'), name('numeroMatriz')])])
+    ],
     [button(class(buttonAmplitud), 'Amplitud'), 
     button(class(buttonProfundidad),'Profundidad')]
     ).
