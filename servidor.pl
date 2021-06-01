@@ -3,6 +3,7 @@
 :- use_module(library(http/http_files)).
 :- use_module(library(http/html_write)).
 :- use_module(library(http/http_unix_daemon)).
+:- use_module(library(http/html_head)).	
 
 
 %Locaciones para archivos
@@ -10,8 +11,8 @@
 :- dynamic   http:location/3.
 
 % Obtener archivos para estilos y validaciones. 
-http:location(styles, root(styles), []).
-:- http_handler(styles(.), http_reply_from_files('./styles', []), [prefix]).
+:- http_handler(css('./styles/index.css'),  http_reply_file('./styles/index.css', []), []).
+http:location(css, root(css), []).
 
 % Manejador de urls.
 :- http_handler(root(.), index, []).
@@ -19,7 +20,7 @@ http:location(styles, root(styles), []).
 % Manejador de solicitudes 
  index(_Request) :-
     reply_html_page([title('N Reinas'),
-    link([rel('stylesheet'), href('/styles/index.css') ]),
+    \html_requires(css('./styles/index.css')),
     h1(class(tituloPrincipal),'Problema N reinas'),
     div([label([for('numeroMatriz')], 'Entero de matriz deseada:'),
     input([class(inputNumeroMatriz),type('number'), id('numeroMatriz'), 
