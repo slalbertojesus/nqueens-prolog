@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy front-end 
 
 on: [push]
 
@@ -18,10 +18,10 @@ jobs:
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
       with:
-        source: "."
-        target: "/proyecto/"
+        source: "./nreinas.frontend/"
+        target: "/proyecto/nreinas.frontend/"
 
-    - name: Ejecutar servidor
+    - name: Ejecutar servidor front-end
       uses: appleboy/ssh-action@master
       with:
         HOST: ${{ secrets.HOST }}
@@ -29,5 +29,6 @@ jobs:
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
         script: |
-                kill -9 $(lsof -t -i:8000)
-                swipl /proyecto/servidor.pl --port=8000 
+                npm install
+                npm run build
+                npm run serve
