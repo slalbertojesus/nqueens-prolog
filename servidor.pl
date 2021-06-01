@@ -19,7 +19,7 @@ http:location(styles, root(styles), []).
 % Manejador de solicitudes 
  index(_Request) :-
     reply_html_page([title('N Reinas'),
-    link([rel('stylesheet'), href('/styles/index.css') ]),
+    link([rel('stylesheet'), href('./styles/index.css') ]),
     h1(class(tituloPrincipal),'Problema N reinas'),
     div([label([for('numeroMatriz')], 'Entero de matriz deseada:'),
     input([class(inputNumeroMatriz),type('number'), id('numeroMatriz'), 
