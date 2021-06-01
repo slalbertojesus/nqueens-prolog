@@ -7,6 +7,18 @@
 	margin: 0 0 58px; 
 }
 
+.labelNumero {
+  margin: 5px 10px 5px 0;
+}
+
+.inputNumeroMatriz {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
 .buttonAmplitud, .buttonProfundidad {
 	box-shadow:inset 0px 1px 3px 0px #91b8b3;
 	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
